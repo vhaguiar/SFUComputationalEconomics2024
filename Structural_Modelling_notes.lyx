@@ -1008,7 +1008,7 @@ Consider a simple market with aggregate demand given by
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\mathbf{p}=\frac{a-\alpha}{b+\beta}-\frac{\mathbf{u}+\mathbf{v}}{b+\beta}.
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{u}-\mathbf{v}}{b+\beta}.
 \]
 
 \end_inset
@@ -1273,6 +1273,10 @@ Note that this is all done at the population level.
  Of course, the credibility of your model and your identification will rely
  on how plausible it is that the exclusion restriction holds.
  
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Part

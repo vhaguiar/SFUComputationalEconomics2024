@@ -160,6 +160,10 @@ branch of economics in which economic theory and statistical methods are
  
 \end_layout
 
+\begin_layout Section
+The Gravity Model of Trade
+\end_layout
+
 \begin_layout Standard
 We will illustrate an instance of structural modeling using an example from
  international trade.
@@ -169,10 +173,6 @@ We will illustrate an instance of structural modeling using an example from
  the following empirical fact the nominal bilateral trade is directly proportion
 al to the mass of the countries and inversely proportional to distance.
  This fact can be generalized to many countries.
-\end_layout
-
-\begin_layout Section
-The Gravity Model of Trade
 \end_layout
 
 \begin_layout Standard
@@ -972,7 +972,7 @@ P_{j}^{\beta}=\sum_{i\in I}P_{i}^{-\beta}\frac{y_{i}}{\alpha}t_{ij}^{\beta}
 \end_layout
 
 \begin_layout Section
-Understanding Identification and Reduced Form
+Understanding Identification and Reduced Form: Supply and Demand.
 \end_layout
 
 \begin_layout Standard
@@ -1008,7 +1008,7 @@ Consider a simple market with aggregate demand given by
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\mathbf{p}=\frac{a-\alpha}{b+\beta}-\frac{\mathbf{u}+\mathbf{v}}{b+\beta}.
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{u}-\mathbf{v}}{b+\beta}.
 \]
 
 \end_inset
