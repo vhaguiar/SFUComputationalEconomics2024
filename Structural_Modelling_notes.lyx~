@@ -1161,7 +1161,7 @@ Then we can identify
 \begin_layout Standard
 \begin_inset Formula 
 \[
-E[\mathbf{x}_{v}\mathbf{e}]=0.
+E[\mathbf{x}_{v}\mathbf{\epsilon_{u}}]=0.
 \]
 
 \end_inset
@@ -1275,7 +1275,155 @@ Note that this is all done at the population level.
  
 \end_layout
 
+\begin_layout Subsection
+Two Stages Least Squares
+\end_layout
+
 \begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{u}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{u}=c_{u}\mathbf{x}_{u}+\mathbf{\epsilon}_{u}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{c_{u}\mathbf{x}_{u}+\mathbf{\epsilon}_{u}}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{c_{u}}}{b+\beta}\mathbf{x}_{u}+\frac{\mathbf{\epsilon}_{u}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=\alpha_{1}+\beta_{1}x_{u}+e_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e_{1}=\frac{\mathbf{\epsilon}_{u}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E[p|x_{u}]=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{c_{u}}}{b+\beta}\mathbf{x}_{u}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=E[p|x_{u}]+e_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=a-bp+\mathbf{u},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=a-b[E[p|x_{u}]+\mathbf{e_{1}}]+\mathbf{u},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=a-bE[p|x_{u}]+\mathbf{u}+b\mathbf{e}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can estimate 
+\begin_inset Formula $b$
+\end_inset
+
+ using 
+\begin_inset Formula $E[p]$
+\end_inset
+
+ versus quantities, 
+\begin_inset Formula $D=Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Y=a-bE[p|x_{u}]
+\]
+
+\end_inset
+
 
 \end_layout
 

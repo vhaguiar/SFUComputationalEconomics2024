@@ -1063,7 +1063,7 @@ He thens assumes that
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\gamma=\frac{Cov(\mathbf{y,p})}{Var(\mathbf{p})}=\frac{\beta\sigma_{u}^{2}-b\sigma_{v}^{2}}{\sigma_{u}^{2}+\sigma_{v}^{2}}.
+\gamma_{1}=\frac{Cov(\mathbf{y,p})}{Var(\mathbf{p})}=\frac{\beta\sigma_{u}^{2}-b\sigma_{v}^{2}}{\sigma_{u}^{2}+\sigma_{v}^{2}}.
 \]
 
 \end_inset
@@ -1073,11 +1073,11 @@ He thens assumes that
 
 \begin_layout Standard
 It is obvious that 
-\begin_inset Formula $\gamma$
+\begin_inset Formula $\gamma_{1}$
 \end_inset
 
  is not equal to 
-\begin_inset Formula $b$
+\begin_inset Formula $\beta$
 \end_inset
 
 , in fact it is a weighted average of 
@@ -1195,7 +1195,7 @@ Note that:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-E[\mathbf{yx}_{v}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{\beta\mathbf{u}\mathbf{x_{v}}+b\mathbf{v}\mathbf{x_{v}}}{b+\beta}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{b\mathbf{v}x_{v}}{b+\beta}]
+E[\mathbf{yx}_{v}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{\beta\mathbf{u}\mathbf{x_{v}}+b\mathbf{v}\mathbf{x_{v}}}{b+\beta}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{b\mathbf{v}\mathbf{x}_{v}}{b+\beta}]
 \]
 
 \end_inset
@@ -1272,6 +1272,185 @@ Note that this is all done at the population level.
  (iii) assuming exclusion restrictions.
  Of course, the credibility of your model and your identification will rely
  on how plausible it is that the exclusion restriction holds.
+ 
+\end_layout
+
+\begin_layout Subsection
+Two Stages Least Squares
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{u}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{u}=c_{u}\mathbf{x}_{u}+\mathbf{\epsilon}_{u}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{c_{u}\mathbf{x}_{u}+\mathbf{\epsilon}_{u}}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{p}=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{c_{u}}}{b+\beta}\mathbf{x}_{u}+\frac{\mathbf{\epsilon}_{u}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=\alpha_{1}+\beta_{1}x_{u}+e_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e_{1}=\frac{\mathbf{\epsilon}_{u}-\mathbf{v}}{b+\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E[p|x_{u}]=\frac{a-\alpha}{b+\beta}+\frac{\mathbf{c_{u}}}{b+\beta}\mathbf{x}_{u}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=E[p|x_{u}]+e_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=a-bp+\mathbf{u},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=a-b[E[p|x_{u}]+\mathbf{e_{1}}]+\mathbf{u},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{D}=a-bE[p|x_{u}]+\mathbf{u}+b\mathbf{e}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can estimate 
+\begin_inset Formula $b$
+\end_inset
+
+ using 
+\begin_inset Formula $E[p]$
+\end_inset
+
+ versus quantities, 
+\begin_inset Formula $D=Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Y=a-bE[p|x_{u}]+e_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e_{2}=\mathbf{u}+b\mathbf{e}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E[e_{2}E[p|x_{u}]]=0,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+by construction.
  
 \end_layout
 
