@@ -1,3 +1,9 @@
+## Author: Victor H. Aguiar
+
+## questions: slack
+
+## Import packages, make sure to install them.
+## Julia version: v"1.8"
 
 import JuMP
 import Ipopt
@@ -54,7 +60,7 @@ ols_naive = JuMP.Model(Ipopt.Optimizer)     # Non-linear system to be solved for
 JuMP.@variable(ols_naive, γ0)
 JuMP.@variable(ols_naive, γ1)            
 
-JuMP.@NLobjective(ols_naive, Min, sum( (y[i] - γ0 - γ1*p[i])^2  for i in 1:N) )
+JuMP.@objective(ols_naive, Min, sum( (y[i] - γ0 - γ1*p[i])^2  for i in 1:N) )
 JuMP.optimize!(ols_naive)
 
 γ1_h = JuMP.value.(γ1)          # Value obtained: -0.214. Biased due to simultaneity.
@@ -93,55 +99,6 @@ for i in 1:N
     x_v[i] = ( v[i] - ϵ_v[i] ) / c_v 
 end
 
-# Now, estimate first stage
-tsls_1 = JuMP.Model(Ipopt.Optimizer)    
-JuMP.@variable(tsls_1, c_uh)        
-
-JuMP.@NLobjective(tsls_1, Min, sum( (u[i] - c_uh*x_u[i])^2  for i in 1:N) )
-JuMP.optimize!(tsls_1)
-
-cu_iv = JuMP.value.(c_uh)               # Value obtained: 0.488
-
-#
-
-tsls_2 = JuMP.Model(Ipopt.Optimizer)    
-JuMP.@variable(tsls_2, c_vh)        
-
-JuMP.@NLobjective(tsls_2, Min, sum( (v[i] - c_vh*x_v[i])^2  for i in 1:N) )
-JuMP.optimize!(tsls_2)
-
-cv_iv = JuMP.value.(c_vh)               # Value obtained: 0.481
-
-# -------------------------------------------------------------------------- #
-#   New estimation from adjusted u and v after recovering estimated cu and cv from first stage.
-
-uh = zeros(N)
-vh = zeros(N)
-for i in 1:N
-    uh[i] = cu_iv*x_u[i] + ϵ_u[i]
-    vh[i] = cv_iv*x_v[i] + ϵ_v[i]
-end
-
-p_iv = zeros(N)
-for i in 1:N
-    p_iv[i]=((a-α)/(β+b)) + ((uh[i]-vh[i])/(β+b))
-end
-
-y_iv = zeros(N)
-for i in 1:N
-    y_iv[i]= ((a*β + b*α)/(b+β)) + ((β*uh[i] + b*vh[i])/(β+b))
-end
-
-ols_iv = JuMP.Model(Ipopt.Optimizer)     # Non-linear system to be solved for Pi and Pj
-JuMP.@variable(ols_iv, b0_h)
-JuMP.@variable(ols_iv, b1_h)            
-
-JuMP.@NLobjective(ols_iv, Min, sum( (y_iv[i] - b0_h - b1_h*p_iv[i])^2  for i in 1:N) )
-JuMP.optimize!(ols_iv)
-
-b1_iv = JuMP.value.(b1_h)
 
 b1_iv2 = -(cov(y,x_v)/cov(p,x_v))               # Value obtained: 0.558. This is a far better estimation than the -0.21 obtained via naive OLS.
 
-
-ed = abs(b1_iv2 - γ1_h)     # estimation difference between naive ols and iv coefficient.
