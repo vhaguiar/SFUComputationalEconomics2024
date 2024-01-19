@@ -1063,7 +1063,7 @@ He thens assumes that
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\gamma=\frac{Cov(\mathbf{y,p})}{Var(\mathbf{p})}=\frac{\beta\sigma_{u}^{2}-b\sigma_{v}^{2}}{\sigma_{u}^{2}+\sigma_{v}^{2}}.
+\gamma_{1}=\frac{Cov(\mathbf{y,p})}{Var(\mathbf{p})}=\frac{\beta\sigma_{u}^{2}-b\sigma_{v}^{2}}{\sigma_{u}^{2}+\sigma_{v}^{2}}.
 \]
 
 \end_inset
@@ -1073,11 +1073,11 @@ He thens assumes that
 
 \begin_layout Standard
 It is obvious that 
-\begin_inset Formula $\gamma$
+\begin_inset Formula $\gamma_{1}$
 \end_inset
 
  is not equal to 
-\begin_inset Formula $b$
+\begin_inset Formula $\beta$
 \end_inset
 
 , in fact it is a weighted average of 
@@ -1195,7 +1195,7 @@ Note that:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-E[\mathbf{yx}_{v}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{\beta\mathbf{u}\mathbf{x_{v}}+b\mathbf{v}\mathbf{x_{v}}}{b+\beta}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{b\mathbf{v}x_{v}}{b+\beta}]
+E[\mathbf{yx}_{v}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{\beta\mathbf{u}\mathbf{x_{v}}+b\mathbf{v}\mathbf{x_{v}}}{b+\beta}]=E[\frac{a\beta+b\alpha}{b+\beta}\mathbf{x}_{v}+\frac{b\mathbf{v}\mathbf{x}_{v}}{b+\beta}]
 \]
 
 \end_inset

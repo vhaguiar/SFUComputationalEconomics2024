@@ -1419,12 +1419,39 @@ We can estimate
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Y=a-bE[p|x_{u}]
+Y=a-bE[p|x_{u}]+e_{2}
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e_{2}=\mathbf{u}+b\mathbf{e}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E[e_{2}E[p|x_{u}]]=0,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+by construction.
+ 
 \end_layout
 
 \begin_layout Part
