@@ -265,8 +265,8 @@ critical_value = quantile(Distributions.Chisq(4), 1 - αsig)
 TSMC2
 ## In this case we cannot reject the null, as it should be. 
 
-## Generate a ne myfun function that now is defined for t in 1:T=4 and k in 1:K=2, recall that w[:,k,t]
-function myfun2(gamma,w)
-    return gamma[1]*w[:,1,1]+gamma[2]*w[:,1,2]+gamma[3]*w[:,1,3]+gamma[4]*w[:,1,4]+gamma[5]*w[:,2,1]+gamma[6]*w[:,2,2]+gamma[7]*w[:,2,3]+gamma[8]*w[:,2,4]
-end
+## Generate a new myfun function that now is defined for t in 1:T=4 and k in 1:K=2, recall that w[:,k,t]
+
+
+
 
