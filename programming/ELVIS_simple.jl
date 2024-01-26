@@ -263,7 +263,7 @@ end
 # get the critical value for the chi-square distribution
 critical_value = quantile(Distributions.Chisq(4), 1 - αsig)
 TSMC2
-## In this case we cannot reject the null as it should be. 
+## In this case we cannot reject the null, as it should be. 
 
 ## Generate a ne myfun function that now is defined for t in 1:T=4 and k in 1:K=2, recall that w[:,k,t]
 function myfun2(gamma,w)
