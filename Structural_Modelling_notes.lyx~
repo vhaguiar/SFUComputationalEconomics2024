@@ -1521,6 +1521,49 @@ supported on
 \end_layout
 
 \begin_layout Standard
+From the Lagrangian 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}=u(c_{1},c_{2},\alpha)+\lambda(p_{1}c_{1}+p_{2}c_{2}-y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla u(c,\alpha)=\left[\begin{array}{c}
+\partial_{1}u(c_{1},c_{2},\alpha)\\
+\partial_{2}u(c_{1},c_{2},\alpha)
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla u(c,\alpha)=\lambda p=\lambda\left[\begin{array}{c}
+p_{1}\\
+p_{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 g_{A,t,1}(x,e)=1(c_{t,1}-w_{t,1}=(\frac{\lambda_{t}p_{t,1}}{\alpha})^{\frac{1}{\alpha-1}})-1\forall t
@@ -1633,8 +1676,7 @@ The following are equivalent.
 \begin_inset Formula $\mathbf{x}=(\mathbf{p_{t},c_{t}})_{t\in\mathcal{T}}$
 \end_inset
 
- is approximately rationalizable by a Cobb-Douglas under centered measurement
- error.
+ is approximately rationalizable by a CES under centered measurement error.
  
 \end_layout
 
