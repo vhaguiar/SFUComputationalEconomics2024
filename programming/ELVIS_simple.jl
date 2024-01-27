@@ -263,6 +263,8 @@ end
 # get the critical value for the chi-square distribution
 critical_value = quantile(Distributions.Chisq(4), 1 - αsig)
 TSMC2
+## We can reject the null that the model is correct, as it should be.
+#TSMC2=0.6824103426023953
 ## In this case we cannot reject the null, as it should be. 
 
 ## Generate a new myfun function that now is defined for t in 1:T=4 and k in 1:K=2, recall that w[:,k,t]
