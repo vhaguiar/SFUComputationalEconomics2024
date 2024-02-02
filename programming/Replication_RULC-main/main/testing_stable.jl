@@ -1,9 +1,18 @@
+## This code was created by Victor H. Aguiar and Nail Kashaev
+## The code is part of the paper "Random Utility and Limited Consideration" by Aguiar, Boccardi, Kashaev, and Kim (ABKK) QE, 2022
+## This version is modified to work with Ipopt instead of KNITRO
+## The code is written in Julia 1.6.4
+
+## This part requires us to use the Pkg package to install the necessary packages and to keep reproducibility, 
+## to obtain the exact numbers as in ABKK you need a KNITRO license, you can get it from Artelys. 
 using Pkg
+## These lines instantiate the packages and activate the environment, KNITRO is not necessary for this part
 Pkg.activate(".")
 Pkg.instantiate()
 using Distributed
 using Statistics
 using DataFrames, CSV
+## This part is to run the code in parallel
 addprocs(7)
 
 @everywhere begin
@@ -11,14 +20,17 @@ addprocs(7)
   using Combinatorics
   using LinearAlgebra
   using JuMP
-  using KNITRO
+  using Ipopt
 end
+
 @everywhere model=$(ARGS[1])   # put "LA", "EBA", or "RUM"
+## This line is not necessary if you are running the code from a shell, but if you are running it from a IDE you need to put the model as an argument
+@everywhere model="RUM"   # put "LA", "EBA", or "RUM"
 println(model)
 
 ## Defining the file directories
 tempdir1=@__DIR__
-rootdir=tempdir1[1:findfirst("ReplicationABKK",tempdir1)[end]]
+rootdir=tempdir1[1:findfirst("Replication_RULC-main",tempdir1)[end]]
 
 ## Functions
 @everywhere include($(rootdir)*"/main/functions_common_testing.jl")

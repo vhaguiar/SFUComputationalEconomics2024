@@ -126,8 +126,9 @@ function etavec_con(ps)
     # Computing P(default)
     po=1.0 .- sum(ps,dims=2)
     DD=subsetsint(32) # All subsets
-    etamin=Model(KNITRO.Optimizer)
-    set_optimizer_attribute(etamin,"outlev",0)
+    etamin=Model(Ipopt.Optimizer)
+    ## commenting next line because of Ipopt
+    #set_optimizer_attribute(etamin,"outlev",0)
     @variable(etamin, etaparam[1:length(DD)]>=0)
     @constraint(etamin, addm, sum(etaparam[t] for t in 1:length(DD))==1)
     if model=="LA"
@@ -150,8 +151,9 @@ function pipie_cons(x)
     dM,dYu=size(x)
     MM=[ m(D,A,x) for D in 1:dM, A in 2:dM] # Matrix of consideration probabilites
     ConsB=(x.>0.0) # Matrix of 0/1. ConsB=0 if P(a in A)=0 and =1 otherwise
-    pipiemin=Model(KNITRO.Optimizer)
-    set_optimizer_attribute(pipiemin,"outlev",0)
+    pipiemin=Model(Ipopt.Optimizer)
+    ##commenting next line because of Ipopt
+    #set_optimizer_attribute(pipiemin,"outlev",0)
     @variable(pipiemin, pipieparam[1:dM,1:dYu]>=0)
     @constraint(pipiemin, sump[l=2:dM], sum(pipieparam[l,t] for t in 1:dYu)==1)
     @constraint(pipiemin, [l=1:dM,t=1:dYu], pipieparam[l,t]<=ConsB[l,t])
@@ -216,8 +218,9 @@ function kstesstat(ghat,G,Omegadiag,taun,solution)
         return -100
     end
     dr,dg=size(G)
-    KS=Model(KNITRO.Optimizer)
-    set_optimizer_attribute(KS,"outlev",0)
+    KS=Model(Ipot.Optimizer)
+    ##commenting next line because of Ipopt 
+    ##set_optimizer_attribute(KS,"outlev",0)
     @variable(KS,etavar[1:dg]>=taun/dg) #taun is a tuning parameter
     @objective(KS,Min,sum((sqrt(Omegadiag[r])*(ghat[r]-sum(G[r,l]*etavar[l] for l in 1:dg)))^2 for r in 1:dr))
     JuMP.optimize!(KS)
