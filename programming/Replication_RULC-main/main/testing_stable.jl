@@ -23,7 +23,7 @@ addprocs(7)
   using Ipopt
 end
 
-@everywhere model=$(ARGS[1])   # put "LA", "EBA", or "RUM"
+#@everywhere model=$(ARGS[1])   # put "LA", "EBA", or "RUM"
 ## This line is not necessary if you are running the code from a shell, but if you are running it from a IDE you need to put the model as an argument
 @everywhere model="RUM"   # put "LA", "EBA", or "RUM"
 println(model)

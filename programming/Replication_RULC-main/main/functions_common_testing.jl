@@ -218,7 +218,7 @@ function kstesstat(ghat,G,Omegadiag,taun,solution)
         return -100
     end
     dr,dg=size(G)
-    KS=Model(Ipot.Optimizer)
+    KS=Model(Ipopt.Optimizer)
     ##commenting next line because of Ipopt 
     ##set_optimizer_attribute(KS,"outlev",0)
     @variable(KS,etavar[1:dg]>=taun/dg) #taun is a tuning parameter
