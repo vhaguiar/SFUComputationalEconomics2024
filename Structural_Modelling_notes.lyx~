@@ -4049,7 +4049,7 @@ We can have also nonseparable models:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-U(x,-p^{t\prime}x)=
+U(x,-p^{t\prime}x)=u(x)/p'x
 \]
 
 \end_inset

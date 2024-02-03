@@ -1,0 +1,269 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{babel}
+\usepackage{babel}
+\usepackage{babel}
+
+
+
+
+
+  \providecommand{\assumptionname}{Assumption}
+  \providecommand{\axiomname}{Axiom}
+  \providecommand{\claimname}{Claim}
+  \providecommand{\definitionname}{Definition}
+  \providecommand{\lemmaname}{Lemma}
+  \providecommand{\propositionname}{Proposition}
+  \providecommand{\remarkname}{Remark}
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\theoremname}{Theorem}
+
+
+
+  \providecommand{\axiomname}{Axiom}
+  \providecommand{\claimname}{Claim}
+  \providecommand{\definitionname}{Definition}
+  \providecommand{\remarkname}{Remark}
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\theoremname}{Theorem}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams-bytype
+theorems-ams-extended-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding default
+\font_roman "cmr" "default"
+\font_sans "cmss" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 2
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.25in
+\topmargin 1.25in
+\rightmargin 1.25in
+\bottommargin 1.25in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Computational Economics: Problem set 3
+\end_layout
+
+\begin_layout Author
+Victor H.
+ Aguiar 
+\end_layout
+
+\begin_layout Date
+This version: March 2024
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Using the code and dataset in Aguiar, Boccardi, Kashaev and Kim 2021, test
+ for the null hypothesis that random utility that is stable across attention
+ frames describes the dataset under a random CRRA assumption.
+ 
+\end_layout
+
+\begin_layout Problem
+Then test the second null hypothesis that the dataset is described by the
+ LA (logit attention) model that has a distribution of preferences that
+ is stable across frames under a random CRRA assumption.
+ 
+\end_layout
+
+\begin_layout Problem
+
+\series bold
+Random CRRA Assumption
+\series default
+: Assume that preference rankings are as if DMs are expected utility maximizers
+ with CRRA Bernoulli utility function 
+\begin_inset Formula 
+\[
+u(x,\sigma)=\begin{cases}
+\frac{x^{1-\sigma}}{1-\sigma}, & \sigma\neq1,\\
+\ln(x), & \sigma=1.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+This means that for any two lotteries 
+\begin_inset Formula $l_{1},l_{2}$
+\end_inset
+
+, and prizes 
+\begin_inset Formula $z_{s}$
+\end_inset
+
+ for each state of the world as in Aguiar, Boccardi, Kashaev and Kim 2021,
+ there is a ranking over lotteries indexed by 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ such that: 
+\begin_inset Formula 
+\[
+l_{1}\succ_{\sigma}l_{2}\iff\sum_{s\in\Omega}l_{1,s}u(z_{s},\sigma)\geq\sum_{s\in\Omega}l_{2,s}u(z_{s},\sigma).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Hint: The way to implement this amounts to constructing rankings under CRRA
+ for all CRRA between [-1,1].
+ There is no single way to do this but you should be expecting 6 rankings
+ for the case of 
+\begin_inset Formula $5$
+\end_inset
+
+ lotteries under LA.
+ Notice that the set of all possible rankings with 5 alternatives is 
+\begin_inset Formula $5!=120$
+\end_inset
+
+ rankings, and the CRRA assumption will rule out 114 rankings.
+\end_layout
+
+\begin_layout Problem
+Report test statistic, pvalue, and the histogram of the bootstrap distribution
+ of the test statistic for both null hypothesis.
+ 
+\end_layout
+
+\begin_layout Standard
+Estimate the distribution of risk aversion under the LA model using the
+ CRRA assumption using only the high and medium cost treatments.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Choose either the gravity model, or the two-stages least square supply and
+ demand model.
+ In either of those problems use bootstrapping to provide boostrap standard
+ errors for 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ or 
+\begin_inset Formula $\beta/b$
+\end_inset
+
+ in the supply and demand model.
+ Use the document bootstrap_problem_set_2.pdf in the folder of the problem
+ set.
+ Use parallelization in Julia, using the package distributed and the pmap()
+ technique.
+ Use at least 
+\begin_inset Formula $B$
+\end_inset
+
+, boostrap numer of simulations equal to 
+\begin_inset Formula $B\geq10000$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document

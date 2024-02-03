@@ -2714,9 +2714,9 @@ If
 \succ^{1}:a\succ^{1}b\succ^{1}c\\
 \succ^{2}:a\succ^{2}c\succ^{2}b\\
 \succ^{3}:b\succ^{3}a\succ^{3}c\\
-\succ^{4}:b\succ^{3}c\succ^{3}a\\
-\succ^{5}:c\succ^{4}a\succ^{4}b\\
-\succ^{6}:c\succ^{4}b\succ^{4}a
+\succ^{4}:b\succ^{4}c\succ^{4}a\\
+\succ^{5}:c\succ^{5}a\succ^{5}b\\
+\succ^{6}:c\succ^{6}b\succ^{6}a
 \end{array}.
 \]
 
