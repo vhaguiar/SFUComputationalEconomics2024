@@ -1454,6 +1454,153 @@ by construction.
  
 \end_layout
 
+\begin_layout Chapter
+BLP
+\end_layout
+
+\begin_layout Standard
+Berry, Levinshohn and Pakes (Econometrica, 1995) develop a technique for
+ empirically analyzing demand and supply in differentiated product markets.
+ 
+\end_layout
+
+\begin_layout Standard
+The econometrician observes for each good 
+\begin_inset Formula $j$
+\end_inset
+
+: 
+\begin_inset Formula $(s_{j},p_{j},x_{j},z_{j})$
+\end_inset
+
+ market shares, market prices, product attributes and instruments.
+ 
+\end_layout
+
+\begin_layout Section
+Theory: Utility and Demand
+\end_layout
+
+\begin_layout Standard
+Consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ chooses good 
+\begin_inset Formula $j$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $U(\zeta_{i},p_{j},x_{j},\xi_{j};\theta)\ge U(\zeta_{i},p_{r},x_{r},\xi_{r};\theta)$
+\end_inset
+
+ for 
+\begin_inset Formula $r=0,1,\cdots,J$
+\end_inset
+
+, where alternatives 
+\begin_inset Formula $r=1,\cdots,J$
+\end_inset
+
+ represent purchases of differentiated products.
+ The vector 
+\begin_inset Formula $(x,\xi,p)$
+\end_inset
+
+ represents the observed product attributes, the unobserved (to the econometrici
+an) product attributes, and the product prices.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{j}=\{\zeta:U(\zeta,p_{j},x_{j},\xi_{j};\theta)\ge U(\zeta,p_{r},x_{r},\xi_{r};\theta)\forall r=0,1,\cdots,J\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then market shares are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{j}(p,x,\xi;\theta)=\int_{\zeta\in A_{j}}P_{0}d(\zeta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A special case of this model that we will be interested here is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(\zeta_{i},p_{j},x_{j},\xi_{j};\theta)=x_{j}\beta-\alpha p_{j}+\xi_{j}+\epsilon_{i,j}=\delta_{j}+\epsilon_{i,j},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta_{j}=x_{j}\beta-\alpha p_{j}+\xi_{j},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which is interpreted as the mean utility under the assumption of centered
+ 
+\begin_inset Formula $\epsilon_{i,j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+With i.i.d.ness of 
+\begin_inset Formula $\epsilon_{i,j}$
+\end_inset
+
+ we can write down
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{j}=\int_{\epsilon}\prod_{q\neq j}P(\delta_{j}-\delta_{q}+\epsilon)P(\epsilon).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Part
 Nonparametric Methods
 \end_layout
@@ -4253,10 +4400,6 @@ This is powerful because we can apply the mixture techniques here using
  the normalized patches, we can essentially do RUM for demand with endogenous
  expenditure.
  
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Part

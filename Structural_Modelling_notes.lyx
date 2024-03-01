@@ -1459,7 +1459,978 @@ BLP
 \end_layout
 
 \begin_layout Standard
+Berry, Levinshohn and Pakes (Econometrica, 1995) develop a technique for
+ empirically analyzing demand and supply in differentiated product markets.
+ 
+\end_layout
 
+\begin_layout Standard
+The econometrician observes for each good 
+\begin_inset Formula $j$
+\end_inset
+
+: 
+\begin_inset Formula $(s_{j},p_{j},x_{j},z_{j})$
+\end_inset
+
+ market shares, market prices, product attributes and instruments.
+ 
+\end_layout
+
+\begin_layout Section
+Theory: Utility and Demand
+\end_layout
+
+\begin_layout Standard
+Consumer 
+\begin_inset Formula $i$
+\end_inset
+
+ chooses good 
+\begin_inset Formula $j$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $U(\zeta_{i},p_{j},x_{j},\xi_{j};\theta)\ge U(\zeta_{i},p_{r},x_{r},\xi_{r};\theta)$
+\end_inset
+
+ for 
+\begin_inset Formula $r=0,1,\cdots,J$
+\end_inset
+
+, where alternatives 
+\begin_inset Formula $r=1,\cdots,J$
+\end_inset
+
+ represent purchases of differentiated products.
+ The vector 
+\begin_inset Formula $(x,\xi,p)$
+\end_inset
+
+ represents the observed product attributes, the unobserved (to the econometrici
+an) product attributes, and the product prices.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{j}=\{\zeta:U(\zeta,p_{j},x_{j},\xi_{j};\theta)\ge U(\zeta,p_{r},x_{r},\xi_{r};\theta)\forall r=0,1,\cdots,J\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then market shares are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{j}(p,x,\xi;\theta)=\int_{\zeta\in A_{j}}P_{0}d(\zeta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A special case of this model that we will be interested here is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U(\zeta_{i},p_{j},x_{j},\xi_{j};\theta)=x_{j}\beta-\alpha p_{j}+\xi_{j}+\epsilon_{i,j}=\delta_{j}+\epsilon_{i,j},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta_{j}=x_{j}\beta-\alpha p_{j}+\xi_{j},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The optimal choice is the one where utility is the highest.
+ Since there are unobserved variables, all consumers do not make the same
+ choice.
+ We solve the model for 
+\emph on
+choice probabilities
+\emph default
+, which are driven by the distribution of 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ and the distribution of 
+\begin_inset Formula $\xi_{j}$
+\end_inset
+
+.
+ If we let these be extreme value distributions, then the choice probabilities
+ follow the familiar logit form.
+\end_layout
+
+\begin_layout Standard
+In particular, suppose that 
+\begin_inset Formula $\xi_{j}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ are iid Type-1- Extreme-Value (T1EV) random variates (or suppose that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\xi_{j}+\varepsilon_{ij}$
+\end_inset
+
+ are iid T1EV) satisfying 
+\begin_inset Formula $f(\varepsilon_{ij})=\exp\left(-\exp\left(-\varepsilon_{ij}\right)\right)\exp\left(-\varepsilon_{ij}\right)$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula 
+\[
+P[x_{j}=1]=\frac{\exp\left(x_{j}\beta-\gamma p_{j}\right)}{\sum_{k}\exp\left(x_{k}\beta-\gamma p_{k}\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ is iid (both across products 
+\begin_inset Formula $j$
+\end_inset
+
+ for a consumer 
+\begin_inset Formula $i$
+\end_inset
+
+, and across consumers 
+\begin_inset Formula $i$
+\end_inset
+
+ for a product 
+\begin_inset Formula $j$
+\end_inset
+
+), then the distribution of a consumer’s preferences over products other
+ than the product it bought does not depend on the product they bought.
+ The iid assumption comes at some cost.
+\end_layout
+
+\begin_layout Standard
+McFadden noted a few problems with this model, all due to the iid nature
+ of the T1EV errors.
+ First, note that we can write the ratio of probabilities for choosing any
+ two products 
+\begin_inset Formula $j,k$
+\end_inset
+
+ as
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+\frac{P[x_{j}=1]}{P[x_{k}=1]}=\frac{\exp\left(x_{j}\beta-\gamma p_{j}\right)}{\exp\left(x_{k}\beta-\gamma p_{k}\right)}.
+\]
+
+\end_inset
+
+This ratio of probababilities does not depend on the characteristics or
+ price of any other good 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Suppose the price of the product you buy rises.
+ Then, you may want to switch.
+ But, the good you switch to doesn't depend on the good you switched from.
+ That is, if for good 
+\begin_inset Formula $j$
+\end_inset
+
+, you drew 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{j}\beta-\gamma p_{j}+\varepsilon_{ij}$
+\end_inset
+
+ is not the maximum across all goods, then you could switch to any other
+ good with a sufficiently large 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ In reality, we might think that 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ are correlated across goods 
+\begin_inset Formula $j$
+\end_inset
+
+ for a given person 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ For example, if some cereals are sweet and some not so sweet, you might
+ think that some consumers like the sweet ones and others like the not so
+ sweet ones.
+ In that case, the 
+\begin_inset Formula $\varepsilon's$
+\end_inset
+
+ would be correlated such that you either draw a bunch of high values for
+ sweet and low values for not sweet, or vice versa.
+ This would imply that when a person switches from a sweet cereal, they
+ switch to a different sweet cereal.
+\end_layout
+
+\begin_layout Standard
+Suppose 2 products have the same choice probabilities.
+ Then, they have the same own-price derivatives, equal to 
+\begin_inset Formula $-\gamma s_{j}$
+\end_inset
+
+ where 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ is the choice probability.
+ This means they'd have the same markups (as these are determined in oligopoly
+ by demand responses).
+\end_layout
+
+\begin_layout Standard
+These problems with the iid errors do not disappear if we include the unobserved
+ characteristic 
+\begin_inset Formula $\xi_{j}$
+\end_inset
+
+.
+ Rather, these just act like fixed effects in the logit probability expression
+ above.
+\end_layout
+
+\begin_layout Standard
+BLP address these problems by allowing for valuations 
+\begin_inset Formula $\beta$
+\end_inset
+
+ that vary across consumers.
+ Let 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ include both observed product characteristics and 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+, the price of good 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ (That is, let the price be one of the 
+\begin_inset Formula $K$
+\end_inset
+
+ characteristics.) Let 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu_{i}$
+\end_inset
+
+ be a 
+\begin_inset Formula $T^{o}-$
+\end_inset
+
+vector 
+\emph on
+observed
+\emph default
+ consumer characteristics and a 
+\begin_inset Formula $T^{u}$
+\end_inset
+
+-vector of 
+\emph on
+unobserved
+\emph default
+ consumer characteristics.
+ Then, let utility be given by
+\begin_inset Formula 
+\[
+U_{ij}=x_{j}\theta_{i}+\xi_{j}+\varepsilon_{ij},
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\theta_{i}=\overline{\theta}+\Theta^{o}z_{i}+\Theta^{u}\nu_{i}.
+\]
+
+\end_inset
+
+This expression for utility is identical to the simple form given above
+ in that it depends on observed characteristics, price (one of the characteristi
+cs now), an unobserved characteristic and an error term.
+ Here, 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ is a 
+\begin_inset Formula $K+1-$
+\end_inset
+
+vector of parameters (
+\begin_inset Formula $K$
+\end_inset
+
+ characteristics and 
+\begin_inset Formula $1$
+\end_inset
+
+ price) that varies across individuals.
+ For a consumer with 
+\begin_inset Formula $z_{i}=\nu_{i}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\theta_{i}=\overline{\theta}$
+\end_inset
+
+.
+ But, for other consumers, the vector 
+\begin_inset Formula $\theta_{i}$
+\end_inset
+
+ adds the 
+\begin_inset Formula $T^{o}-$
+\end_inset
+
+vector of observed characteristics 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+ multiplied by the 
+\begin_inset Formula $T^{o}\times\left(K+1\right)$
+\end_inset
+
+-matrix of parameters 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Theta^{o}$
+\end_inset
+
+, and the 
+\begin_inset Formula $T^{u}$
+\end_inset
+
+-vector of unobserved characteristics
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset Formula $\nu_{i}$
+\end_inset
+
+ multiplied by the 
+\begin_inset Formula $T^{u}\times\left(K+1\right)$
+\end_inset
+
+-matrix of parameters 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Theta^{u}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ The unobserved consumer characteristics break the restriction that everyone
+ sees every alternative to their good as identical.
+\end_layout
+
+\begin_layout Standard
+All utilities are relative to that of an outside good (
+\begin_inset Formula $U_{i0}$
+\end_inset
+
+), so we think of these as 
+\begin_inset Quotes eld
+\end_inset
+
+utility above the outside good
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Now the assumption of iid 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ does not bite so terribly, because we have 
+\begin_inset Formula $\Theta^{u}$
+\end_inset
+
+ to allow for correlation across equations.
+ So, let 
+\begin_inset Formula $\varepsilon_{ij}$
+\end_inset
+
+ be iid T1EV (so that we get a multinomial logit at the end).
+\end_layout
+
+\begin_layout Standard
+Now, we want to express this utility function in terms of the bit that is
+ easy to deal with, and the hard bits.
+ Substituting the valuations above into the utility function, we get
+\begin_inset Formula 
+\[
+U_{ij}=\delta_{j}+x_{j}\Theta^{o}z_{i}+x_{j}\Theta^{u}\nu_{i}+\varepsilon_{ij},
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\delta_{j}=x_{j}\overline{\theta}+\xi_{j}.
+\]
+
+\end_inset
+
+At the market level, we are going to have 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ which are not troublesome because the unobserved characteristic does not
+ vary across 
+\begin_inset Formula $i$
+\end_inset
+
+ and because 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\overline{\theta}$
+\end_inset
+
+ does not vary across 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ However, we do have 2 potentially troublesome terms: the interaction between
+ observed product characteristics 
+\begin_inset Formula $x$
+\end_inset
+
+ and observed consumer characteristics 
+\begin_inset Formula $z$
+\end_inset
+
+; and the interaction between observed product characteristics 
+\begin_inset Formula $x$
+\end_inset
+
+ and unobserved consumer characteristics 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Estimation of BLP
+\end_layout
+
+\begin_layout Standard
+Consider the case where we have product x market level data that gives the
+ market share of every product in every market (it doesn't need to be a
+ balanced panel though).
+ Also, assume there exist some instruments 
+\begin_inset Formula $w$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $E[\xi|w]=0$
+\end_inset
+
+.
+ Since we only observed these data, we obviously do not observe any consumer
+ characteristics 
+\begin_inset Formula $z$
+\end_inset
+
+.
+ All are loaded onto the unobserved consumer characteristics 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+ We assume that we do know the distribution(s) of these consumer characteristics.
+\end_layout
+
+\begin_layout Standard
+The parameters of the model are 
+\begin_inset Formula $\delta,\varTheta$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\delta$
+\end_inset
+
+ includes 
+\begin_inset Formula $\xi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If you know 
+\begin_inset Formula $\delta,\varTheta$
+\end_inset
+
+ and the distribution of 
+\begin_inset Formula $v$
+\end_inset
+
+, you can compute predicted market shares 
+\begin_inset Formula $\sigma_{j}$
+\end_inset
+
+.
+ Conditional on the unobserved consumer characteristics 
+\begin_inset Formula $\nu$
+\end_inset
+
+, and given a particular parameter vector 
+\begin_inset Formula $\delta,\varTheta$
+\end_inset
+
+, market shares have the logit form 
+\begin_inset Formula $\exp(\tau_{j})/1+\sum_{s}\exp(\tau_{s}$
+\end_inset
+
+).
+ So, we integrate over the distribution of 
+\begin_inset Formula $\nu$
+\end_inset
+
+ (there are no observed 
+\begin_inset Formula $z$
+\end_inset
+
+'s) to get market shares 
+\begin_inset Formula $\sigma_{j}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\sigma_{j}(\delta,\theta)=\int\frac{\exp\left(\delta_{j}+x_{j}\Theta^{u}\nu_{i}\right)}{1+\sum_{s}\exp\left(\delta_{s}+x_{s}\Theta^{u}\nu_{i}\right)}f(\nu)\partial\nu.
+\]
+
+\end_inset
+
+Nobody likes integrating.
+ Pakes (1986) suggests sampling some 
+\begin_inset Formula $\nu$
+\end_inset
+
+ from a distribution, and summing:
+\begin_inset Formula 
+\[
+\sigma_{j}(\delta,\theta;P^{ns})=\sum_{r}\frac{\exp\left(\delta_{j}+x_{j}\Theta^{u}\nu_{ir}\right)}{1+\sum_{s}\exp\left(\delta_{s}+x_{s}\Theta^{u}\nu_{ir}\right)}.
+\]
+
+\end_inset
+
+Here, 
+\begin_inset Formula $P^{ns}$
+\end_inset
+
+ is a distribution from which you sample 
+\begin_inset Formula $s$
+\end_inset
+
+ times for each of the 
+\begin_inset Formula $n$
+\end_inset
+
+ observations in a particular market.
+ This gives a vector of 
+\begin_inset Formula $\sigma_{j}$
+\end_inset
+
+ given 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\delta,\theta;P^{ns}$
+\end_inset
+
+.
+ This step requires a distribution 
+\begin_inset Formula $P^{ns}$
+\end_inset
+
+ to sample from.
+ You might choose a normal, e.g..
+ Since 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ has an intercept, your normal could be mean-zero, thus having only a variance
+ parameter.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Berry (1994) shows that there's only one 
+\begin_inset Formula $\delta$
+\end_inset
+
+ that goes with any set of market shares and 
+\begin_inset Formula $\Theta$
+\end_inset
+
+, and that it is a contraction mapping.
+ Alternatively put, market shares 
+\begin_inset Formula $s_{j}$
+\end_inset
+
+ identify 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ conditional on 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
+ So, we can solve for 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ BLP (1995) show that can be done by iterating the following linear equation
+\begin_inset Formula 
+\[
+\delta_{j}^{new}(\theta)=\delta_{j}^{old}(\theta)+\ln s_{j}-\ln\sigma_{j}(\theta,\delta^{old};P^{ns})
+\]
+
+\end_inset
+
+until 
+\begin_inset Formula $\sigma_{j}(\delta,\theta;P^{ns})=s_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ This means we can identify 
+\begin_inset Formula $\delta$
+\end_inset
+
+ given 
+\begin_inset Formula $\theta$
+\end_inset
+
+, including identification of 
+\begin_inset Formula $\xi$
+\end_inset
+
+ given 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ In particular, with 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in our pocket and 
+\begin_inset Formula $\delta_{j}$
+\end_inset
+
+ identified, we can compute 
+\begin_inset Formula $\xi_{j}=\delta_{j}-\sum_{k}x_{jk}\theta_{k}$
+\end_inset
+
+.
+ This iteration step would typically use a 
+\family sans
+\shape slanted
+while
+\family default
+\shape default
+ loop in Stata.
+\end_layout
+
+\begin_layout Enumerate
+Now we use our instruments for 
+\begin_inset Formula $\xi$
+\end_inset
+
+ to identify 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
+ Find 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ that bring 
+\begin_inset Formula $\xi$
+\end_inset
+
+ as close as possible to orthogonal to instruments 
+\begin_inset Formula $w.$
+\end_inset
+
+ In particular, one may use GMM for the moment conditions 
+\begin_inset Formula $E[\xi|w]=0$
+\end_inset
+
+.
+ This is not the friendliest GMM, though, because for each value of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, we have to do step 2 above.
+ Luckily, it is canned in the Stata module 
+\family sans
+\shape slanted
+blp
+\family default
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The GMM requires instruments 
+\begin_inset Formula $w$
+\end_inset
+
+ that are uncorrelated with unobserved characteristics 
+\begin_inset Formula $\xi$
+\end_inset
+
+.
+ One might well suspect that observed product characteristics 
+\begin_inset Formula $x$
+\end_inset
+
+ (and consumer characteristics 
+\begin_inset Formula $z$
+\end_inset
+
+, if used) are thus elements of 
+\begin_inset Formula $w$
+\end_inset
+
+.
+ But are prices 
+\begin_inset Formula $p$
+\end_inset
+
+ uncorrelated with unobserved characteristics? This seems a far cry.
+ One might use supply-side instruments for prices.
+ Or, one might model the supply side of the market, e.g., by modeling the
+ pricing equations for oligopolistic supply (this would still require instrument
+s).
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Enumerate
+Berry, Steve, 1994, ”Estimating Discrete Choice Models of Product Differentiatio
+n,” RAND, vol.
+ 25, no.
+ 2, pp.
+ 242-262.
+\end_layout
+
+\begin_layout Enumerate
+Berry, S., J.
+ Levinsohn and A.
+ Pakes, 1995, ”Automobile Prices in Market Equilibrium,” Econometrica, vol.
+ 63, no.
+ 4, pp.
+ 841-890.
+\end_layout
+
+\begin_layout Enumerate
+Blow, Laura, Browning, Martin and Crawford, Ian.
+ 2008.
+ "Revealed Preference Methods for the Consumer Characteristics Model" Review
+ of Economic Studies, vol 75, pp.
+ 371-389.
+\end_layout
+
+\begin_layout Enumerate
+Pakes, Ariel, 1986, ”Patents as Options: Some Estimates of the Value of
+ Holding European Patent Stocks,” Econometrica, vol.
+ 54, pp.
+ 755-784.
+\end_layout
+
+\begin_layout Enumerate
+Daniel Ackerberg, C.
+ Lanier Benkard, Steven Berry, and Ariel Pakes, 2011, 
+\begin_inset Quotes eld
+\end_inset
+
+Econometric Tools for Analyzing Market Outcomes
+\begin_inset Quotes erd
+\end_inset
+
+, Handbook Chapter.
+\end_layout
+
+\begin_layout Enumerate
+McFadden, Daniel, 1974, 
+\begin_inset Quotes eld
+\end_inset
+
+The measurement of urban travel demand." Journal of public economics 3.4:
+ 303-328.
+\end_layout
+
+\begin_layout Enumerate
+McFadden, Daniel, and Paul Zarembka, 1974, "Conditional logit analysis of
+ qualitative choice behavior
+\begin_inset Quotes erd
+\end_inset
+
+ in Frontiers in Econometrics, 105-142.
 \end_layout
 
 \begin_layout Part
