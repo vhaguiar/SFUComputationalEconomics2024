@@ -1622,7 +1622,7 @@ In particular, suppose that
  Then, 
 \begin_inset Formula 
 \[
-P[x_{j}=1]=\frac{\exp\left(x_{j}\beta-\gamma p_{j}\right)}{\sum_{k}\exp\left(x_{k}\beta-\gamma p_{k}\right)}.
+P[x_{j}=1]=\frac{\exp\left(x_{j}\beta-\alpha p_{j}\right)}{\sum_{k}\exp\left(x_{k}\beta-\alpha p_{k}\right)}.
 \]
 
 \end_inset
@@ -1679,7 +1679,7 @@ McFadden noted a few problems with this model, all due to the iid nature
 
 \begin_inset Formula 
 \[
-\frac{P[x_{j}=1]}{P[x_{k}=1]}=\frac{\exp\left(x_{j}\beta-\gamma p_{j}\right)}{\exp\left(x_{k}\beta-\gamma p_{k}\right)}.
+\frac{P[x_{j}=1]}{P[x_{k}=1]}=\frac{\exp\left(x_{j}\beta-\alpha p_{j}\right)}{\exp\left(x_{k}\beta-\alpha p_{k}\right)}.
 \]
 
 \end_inset
@@ -1706,7 +1706,7 @@ Suppose the price of the product you buy rises.
 \end_inset
 
  such that 
-\begin_inset Formula $x_{j}\beta-\gamma p_{j}+\varepsilon_{ij}$
+\begin_inset Formula $x_{j}\beta-\alpha p_{j}+\varepsilon_{ij}$
 \end_inset
 
  is not the maximum across all goods, then you could switch to any other
