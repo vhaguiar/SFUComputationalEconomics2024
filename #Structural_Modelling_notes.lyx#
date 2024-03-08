@@ -2489,49 +2489,7 @@ s_{j}(p,x,\xi,\theta)+\sum_{r\in\mathcal{F}_{f}}(p_{r}-mc_{r})\frac{\partial s_{
 \end_layout
 
 \begin_layout Standard
-Price-cost markups:
-\end_layout
 
-\begin_layout Standard
-\begin_inset Formula 
-\[
-s(p,x,\xi;\theta)-\Delta(p,x,\xi;\theta)[p-mc]=0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-p=mc+\Delta(p,x,\xi,\theta)^{-1}s(p,x,\xi;\theta).
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-ln(p-b(p,x,\xi,\theta))=w\gamma+\omega.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We impose 
-\begin_inset Formula $E[\omega|z]=0$
-\end_inset
-
- as well.
- 
 \end_layout
 
 \begin_layout Section

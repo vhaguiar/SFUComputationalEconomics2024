@@ -1706,7 +1706,7 @@ Suppose the price of the product you buy rises.
 \end_inset
 
  such that 
-\begin_inset Formula $x_{j}\beta-\gamma p_{j}+\varepsilon_{ij}$
+\begin_inset Formula $x_{j}\beta-\alpha p_{j}+\varepsilon_{ij}$
 \end_inset
 
  is not the maximum across all goods, then you could switch to any other
