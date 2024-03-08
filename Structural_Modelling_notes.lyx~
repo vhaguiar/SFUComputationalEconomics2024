@@ -2366,6 +2366,174 @@ The GMM requires instruments
 s).
 \end_layout
 
+\begin_layout Subsection
+Supply Side
+\end_layout
+
+\begin_layout Standard
+We consider that there are 
+\begin_inset Formula $F$
+\end_inset
+
+ firms, each producing some subset of goods 
+\begin_inset Formula $\mathcal{F}_{f}$
+\end_inset
+
+, of the 
+\begin_inset Formula $J$
+\end_inset
+
+ products.
+ The marginal cost of the firm per good 
+\begin_inset Formula $j$
+\end_inset
+
+ is assumed to be
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+ln(mc_{j})=w_{j}\gamma+\omega_{j},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a vector of parameters, 
+\begin_inset Formula $w_{j},\omega_{j}$
+\end_inset
+
+ are observed and unobserved cost characteristics.
+ We can allow 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ to be part of 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega_{j}$
+\end_inset
+
+ to be correlated with 
+\begin_inset Formula $\xi_{j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The firms profit maximize with full knowledge of the behavior of consumers:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Pi_{f}=\sum_{j\in\mathcal{F}_{j}}(p_{j}-mc_{j})Ms_{j}(p,x,\xi;\theta),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $mc_{j}$
+\end_inset
+
+ is given above.
+ Firms can choose prices to maximize its profit given the attributes of
+ products and the prices and attributes of competing products.
+ 
+\end_layout
+
+\begin_layout Standard
+The first order conditions of the profit problem (assumed that it is well
+ behaved) are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{j}(p,x,\xi,\theta)+\sum_{r\in\mathcal{F}_{f}}(p_{r}-mc_{r})\frac{\partial s_{r}(p,x,\xi;\theta)}{\partial p_{j}}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta_{jr}=\begin{cases}
+-\frac{\partial s_{r}}{\partial p_{j}} & \exists f:r,j\in\mathcal{F}_{f}\\
+0 & \text{otherwise}
+\end{cases}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Price-cost markups:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s(p,x,\xi;\theta)-\Delta(p,x,\xi;\theta)[p-mc]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=mc+\Delta(p,x,\xi,\theta)^{-1}s(p,x,\xi;\theta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+ln(p-b(p,x,\xi,\theta))=w\gamma+\omega.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We impose 
+\begin_inset Formula $E[\omega|z]=0$
+\end_inset
+
+ as well.
+ 
+\end_layout
+
 \begin_layout Section
 References
 \end_layout
