@@ -2102,7 +2102,7 @@ The parameters of the model are
  Rename 
 \begin_inset Formula 
 \[
-\delta_{j}=x_{j}\theta_{1}+\xi_{j}.
+\delta_{j}=x_{j}'\theta_{1}+\xi_{j}.
 \]
 
 \end_inset
@@ -2152,7 +2152,7 @@ If you know
 :
 \begin_inset Formula 
 \[
-\sigma_{j}(\delta,\theta)=\int\frac{\exp\left(\delta_{j}+x_{j}\theta_{2}\nu_{i}\right)}{1+\sum_{s}\exp\left(\delta_{s}+x_{s}\theta_{2}\nu_{i}\right)}f(\nu)\partial\nu.
+\sigma_{j}(\delta,\theta)=\int\frac{\exp\left(\delta_{j}+\sum_{k}x_{jk}\theta_{2k}\nu_{k}\right)}{1+\sum_{s}\exp\left(\delta_{s}+\sum_{k}x_{jk}\theta_{2k}\nu_{k}\right)}f(\nu)\partial\nu.
 \]
 
 \end_inset
@@ -2165,7 +2165,7 @@ Nobody likes integrating.
  from a distribution, and summing:
 \begin_inset Formula 
 \[
-\sigma_{j}(\delta,\theta;P^{ns})=\sum_{r}\frac{\exp\left(\delta_{j}+x_{j}\theta_{2}\nu_{ir}\right)}{1+\sum_{s}\exp\left(\delta_{s}+x_{s}\theta_{2}\nu_{ir}\right)}.
+\sigma_{j}(\delta,\theta;P^{ns})=\sum_{r=1}^{ns}\frac{\exp\left(\delta_{j}+\sum_{k}x_{jk}\theta_{2k}\nu_{rk}\right)}{1+\sum_{s}\exp\left(\delta_{s}+\sum_{k}x_{jk}\theta_{2k}\nu_{rk}\right)}.
 \]
 
 \end_inset
@@ -2407,7 +2407,7 @@ We consider that there are
 \begin_layout Standard
 \begin_inset Formula 
 \[
-ln(mc_{j})=w_{j}\gamma+\omega_{j},
+ln(mc_{j})=w_{j}\theta_{3}+\omega_{j},
 \]
 
 \end_inset
@@ -2468,6 +2468,11 @@ where
  is given above.
  Firms can choose prices to maximize its profit given the attributes of
  products and the prices and attributes of competing products.
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ denotes the size of the market.
  
 \end_layout
 
@@ -2530,7 +2535,7 @@ p=mc+\Delta(p,x,\xi,\theta)^{-1}s(p,x,\xi;\theta).
 \begin_layout Standard
 \begin_inset Formula 
 \[
-ln(p-b(p,x,\xi,\theta))=w\gamma+\omega.
+ln(p-b(p,x,\xi,\theta))=w\theta_{3}+\omega.
 \]
 
 \end_inset

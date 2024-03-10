@@ -2081,7 +2081,7 @@ Consider the case where we have product x market level data that gives the
 
 \begin_layout Standard
 The parameters of the model are 
-\begin_inset Formula $\delta,\varTheta$
+\begin_inset Formula $\delta,\theta_{2}$
 \end_inset
 
 .
@@ -2094,12 +2094,25 @@ The parameters of the model are
 \end_inset
 
 .
- 
+ Let 
+\begin_inset Formula $\theta=(\theta_{1},\theta_{2})$
+\end_inset
+
+.
+ Rename 
+\begin_inset Formula 
+\[
+\delta_{j}=x_{j}'\theta_{1}+\xi_{j}.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
 If you know 
-\begin_inset Formula $\delta,\varTheta$
+\begin_inset Formula $\delta,\theta_{2}$
 \end_inset
 
  and the distribution of 
@@ -2116,7 +2129,7 @@ If you know
 \end_inset
 
 , and given a particular parameter vector 
-\begin_inset Formula $\delta,\varTheta$
+\begin_inset Formula $\delta,\theta_{2}$
 \end_inset
 
 , market shares have the logit form 
@@ -2139,7 +2152,7 @@ If you know
 :
 \begin_inset Formula 
 \[
-\sigma_{j}(\delta,\theta)=\int\frac{\exp\left(\delta_{j}+x_{j}\Theta^{u}\nu_{i}\right)}{1+\sum_{s}\exp\left(\delta_{s}+x_{s}\Theta^{u}\nu_{i}\right)}f(\nu)\partial\nu.
+\sigma_{j}(\delta,\theta)=\int\frac{\exp\left(\delta_{j}+\sum_{k}x_{jk}\theta_{2k}\nu_{k}\right)}{1+\sum_{s}\exp\left(\delta_{s}+\sum_{k}x_{jk}\theta_{2k}\nu_{k}\right)}f(\nu)\partial\nu.
 \]
 
 \end_inset
@@ -2152,7 +2165,7 @@ Nobody likes integrating.
  from a distribution, and summing:
 \begin_inset Formula 
 \[
-\sigma_{j}(\delta,\theta;P^{ns})=\sum_{r}\frac{\exp\left(\delta_{j}+x_{j}\Theta^{u}\nu_{ir}\right)}{1+\sum_{s}\exp\left(\delta_{s}+x_{s}\Theta^{u}\nu_{ir}\right)}.
+\sigma_{j}(\delta,\theta;P^{ns})=\sum_{r=1}^{ns}\frac{\exp\left(\delta_{j}+\sum_{k}x_{jk}\theta_{2k}\nu_{rk}\right)}{1+\sum_{s}\exp\left(\delta_{s}+\sum_{k}x_{jk}\theta_{2k}\nu_{rk}\right)}.
 \]
 
 \end_inset
@@ -2277,7 +2290,7 @@ until
 \end_inset
 
  identified, we can compute 
-\begin_inset Formula $\xi_{j}=\delta_{j}-\sum_{k}x_{jk}\theta_{k}$
+\begin_inset Formula $\xi_{j}=\delta_{j}-\sum_{k}x_{jk}\theta_{1,k}$
 \end_inset
 
 .
@@ -2296,12 +2309,12 @@ Now we use our instruments for
 \end_inset
 
  to identify 
-\begin_inset Formula $\Theta$
+\begin_inset Formula $\theta_{2}$
 \end_inset
 
 .
  Find 
-\begin_inset Formula $\Theta$
+\begin_inset Formula $\theta_{2}$
 \end_inset
 
  that bring 
@@ -2455,6 +2468,11 @@ where
  is given above.
  Firms can choose prices to maximize its profit given the attributes of
  products and the prices and attributes of competing products.
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ denotes the size of the market.
  
 \end_layout
 
