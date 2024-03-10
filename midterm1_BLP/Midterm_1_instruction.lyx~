@@ -144,9 +144,9 @@ Tasks for the students:
 \end_layout
 
 \begin_layout Enumerate
-Data Analysis: Transform the different datasets in the folder .../GitHub/SFUComputa
-tionalEconomics2024/midterm1_BLP/simulated_data, into the format that is
- usable for the BLP estimation used in class.
+Data Analysis: Transform the different datasets in the folder .../midterm1_BLP/simu
+lated_data, into the format that is usable for the BLP estimation used in
+ class.
  Document how you did it, and report in your pdf a screen shot of the first
  10 markets in the shape of the data of the code we used in class.
  Note that instruments are not included in this dataset.
@@ -243,10 +243,6 @@ Average scenario: he new caffeine score
 If you work on a regulatory institution would you approve the merger under
  Efficiency Sceneario? Would you approve it under the average scenario?
  Yes ,no and why?
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body

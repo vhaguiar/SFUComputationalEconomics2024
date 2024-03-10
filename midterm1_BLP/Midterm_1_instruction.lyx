@@ -110,6 +110,20 @@ You have to deliver a pdf report with your LASTNAME_Name_midterm1.pdf containing
 \end_layout
 
 \begin_layout Standard
+Update a single zip file with the accompanying julia files for estimation.
+ 
+\end_layout
+
+\begin_layout Standard
+The handling of data, in particular to reshape it to the form you need for
+ using the code can be done in Julia using DataFrames package and CSV package
+ but here use the software of choice.
+ But estimation of BLP has to be done in julia using modifications of the
+ code I provided.
+ 
+\end_layout
+
+\begin_layout Standard
 No late exams or submissions accepted.
  
 \end_layout
