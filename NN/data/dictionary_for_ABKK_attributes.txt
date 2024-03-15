@@ -1,0 +1,74 @@
+id_numb "unique identifier of the subject"
+menu_code "menu identifier that links to the Qualtrics surveys"
+menu_nail "menu identifier that links to the Julia v.1.5.2 Combinatorics package"
+cost  "attention cost/frame"  "3:=high cost/5 operations" "2:=medium cost/3 operations" "1:=low cost/0 operation"
+choice "choice alternative identifier" "Prizes=Z=(50,48,30,14,12,10,0), l1 = (1/2, 0, 0, 0, 0, 0, 1/2), l2 = (0, 0, 1/2, 0, 0, 1/2, 0), a = (0, 2/5, 0, 3/10, 0, 0, 3/10), l3 = 1/
+2*l1 +1/2*l2, l4 = 1/2*l1+1/2*a, l5 = 1/2*l2 + 1/2*a., l0=(0,0,0,0,1,0,0)."
+order "order of appearance/list position of lotteries after lottery0/default"
+completed "flag=1 indicating survey has been completed"
+date "date and time the Survey was completed"
+latitude  "latitude of the ip associated with the survey"
+longitude "longitude of the ip associated with the survey"
+duration  "total duration of survey in seconds"
+firstclick "How many total seconds the page was visible before the respondent clicks the first time."
+lastclick "How many total seconds the page was visible before the respondent clicks the last time (not including clicking the Next button)."
+pagesubmit "How many total seconds pass before the respondent clicks the Next button"
+clickcount "How many total times the respondent clicks on the page."
+alt_asked "label of the 2nd alternative to appear on the list"
+altasked "label of the 3rd alternative to appear on the list"
+v24	"label of the 4th alternative to appear on the list"
+v25	"label of the 5th alternative to appear on the list"
+v26 "label of the 6th alternative to appear on the list"
+binary_timingfirstclick "How many total seconds before first click for Binary Choice Comparisons"
+binary_high_timinglastclick	"How many total seconds before last click for Binary Choice Comparisons"
+binary_high_timingpagesubmit "pagesubmit for binary choice task"
+binary_high_timingclickcount  "clickcount for binary choice task"
+binary1_menu
+binary1_choice
+binary1_order
+binary2_menu
+binary2_choice
+binary2_order
+binary3_menu
+binary3_choice
+binary3_order
+binary4_menu
+binary4_choice
+binary4_order
+binary5_menu
+binary5_choice
+binary5_order
+binary6_menu
+binary6_choice
+binary6_order
+binary7_menu
+binary7_choice
+binary7_order
+binary8_menu
+binary8_choice
+binary8_order
+binary9_menu
+binary9_choice
+binary9_order
+binary10_menu
+binary10_choice
+binary10_order
+gender  "gender of subject" "1 female" "2 male"
+age "1=18-24 years old; 2=25-34 years old; 3=35-44 years old; 4=45-54 years old; 5=55-64 years old; 6=65-74 years old; 7=75 years old."
+education "1=some high school; 2=high school graduate; 3=some college; 4=Associate or Bachellors degree; 5=Master degree or higher"
+ethnicity "1=white; 2=hispanic or latino; 3=black or african american; 4=Asian; 5=Native Hawaiian or Pacific Islander; 6=Other"
+marital_status "1=single; 2=married; 3=widowed; 4=divorced or separated"
+income "1=Less than 10000;2=10000 to 19999; 3=20000 to 29999; 4=30000 to 39999; 5=40000 to 49999; 6=50000 to 59999; 7=60000 to 69999; 8=70000 to 79999; 9=80000 to 89999; 10=90000 to 99999; 11=100000 to 149999; 12=more than 150000"
+employment "1=employed or self-employed; 2=out of work and looking for work; 3=out of work but not looking for work; 4=homemaker; 5=student; 6=retired or unable to work"
+pairwisecomparisonsorder "order of the binary comparisons"
+v69 "flag erase"
+firstquestion "is this task the first question"
+prob50	"probability of chosen lottery of winning 50"
+prob48	"probability of chosen lottery of winning 48"
+prob30	"probability of chosen lottery of winning 30"
+prob14  "probability of chosen lottery of winning 14"
+prob12  "probability of chosen lottery of winning 12"
+prob10  "probability of chosen lottery of winning 10"
+prob0   "probability of chosen lottery of winning 0"
+expect  "mathematical expectation of the chosen lottery"
+complex "number of operations to compute the expectation after understanding the monetary prize"
