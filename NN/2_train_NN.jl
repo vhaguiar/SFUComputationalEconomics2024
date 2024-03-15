@@ -1,3 +1,4 @@
+## v"1.10.1"
 using Plots
 using MLJBase
 using StableRNGs # Seeding generator for reproducibility
