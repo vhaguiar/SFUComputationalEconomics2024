@@ -1,3 +1,4 @@
+##VERSION v"1.10.1"
 """
     Funtion to initialise the parameters or weights of the desired network.
 """
