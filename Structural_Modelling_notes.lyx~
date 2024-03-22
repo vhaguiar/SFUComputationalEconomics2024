@@ -6851,7 +6851,19 @@ Now let's apply the method
 \end_layout
 
 \begin_layout Standard
+The procedure has no redundant computations so the procedure is modular,
+ it is broken into small chunks that can be reused for other computations.
+ 
+\end_layout
 
+\begin_layout Standard
+For instance, if we wanted to change the loss function we just had to modify
+ the formula for 
+\begin_inset Formula $\overline{y}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Chapter

@@ -1,12 +1,15 @@
+## Author: Victor H. Aguiar
+## Version Julia 1.7.2
 tempdir1=@__DIR__
-rootdir=tempdir1[1:findfirst("TopicsDecisionMaking",tempdir1)[end]]
+rootdir=tempdir1[1:findfirst("SFUComputationalEconomics2024",tempdir1)[end]]
 cd(rootdir)
-cd(rootdir*"\\NN\\")
+cd(rootdir*"/NN")
 using Pkg
 Pkg.activate()
 using Distributed
 using Statistics
 using DataFrames, CSV
+## add Plots, Random, Combinatorics, LinearAlgebra, JuMP, Ipopt, Flux, Statistics, Parameters
 using Plots
 addprocs(7)
 
@@ -88,7 +91,7 @@ function train(; kws...)
     train_data, test_data = get_processed_data(args)
 
     # Declare model taking 37 features as inputs and outputting 6 probabiltiies,
-    # one for each species of iris.
+    # one for each lottery.
     ##Create a traditional Dense layer with parameters W and b.
     ##y = σ.(W * x .+ b), x is of length 37 and y is of length 6.
     model = Chain(Dense(37, 6))
@@ -102,7 +105,7 @@ function train(; kws...)
     optimiser = Descent(args.lr)
 
     println("Starting training.")
-    Flux.train!(loss, params(model), train_data, optimiser)
+    Flux.train!(loss, Flux.params(model), train_data, optimiser)
 
     return model, test_data
 end
@@ -166,7 +169,7 @@ optimiser = Descent(0.5)
 
 #   train_data =  Iterators.repeated((features,labels), 100)
 #   test_data = (features,y_test)
-Flux.train!(loss, params(model2), train_data, optimiser)
+Flux.train!(loss, Flux.params(model2), train_data, optimiser)
 loss(X_test,y_test)
 accuracy(X_test,y_test,model2)
 ######################
@@ -185,7 +188,7 @@ optimiser = ADAM(0.001, (0.9, 0.8))
 
 #   train_data =  Iterators.repeated((features,labels), 100)
 #   test_data = (features,y_test)
-Flux.train!(loss, params(model3), train_data, optimiser)
+Flux.train!(loss, Flux.params(model3), train_data, optimiser)
 
 loss(X_train,y_train)
 loss(X_test,y_test)
@@ -216,7 +219,7 @@ loss(x, y) = Flux.mse(model4(x), y)
 optimiser = ADAM(0.001, (0.9, 0.8))
 #   train_data =  Iterators.repeated((features,labels), 100)
 #   test_data = (features,y_test)
-Flux.train!(loss, params(model4), train_data, optimiser)
+Flux.train!(loss, Flux.params(model4), train_data, optimiser)
 
 loss(X_train,y_train)
 loss(X_test,y_test)
