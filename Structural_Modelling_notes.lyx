@@ -6157,7 +6157,7 @@ this nonlinear transformation is key as it allows the outter linear model
 \end_layout
 
 \begin_layout Subsection*
-Backpropagation and Chain Rule
+Backpropagation and Chain Rule (based on Roger Grosse notes lecture 2)
 \end_layout
 
 \begin_layout Subsection*
@@ -6293,6 +6293,577 @@ Calculus class
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)\frac{\partial}{\partial w}(wx+b)+\lambda w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similar calculations for 
+\begin_inset Formula $b$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\mathcal{L}_{r}}{\partial b}=(\sigma(wx+b)-t)\sigma'(wx+b).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This gives a correct answer about the gradient that can be used for optimization
+ but: 
+\end_layout
+
+\begin_layout Enumerate
+Calculations are cumbersome.
+ It is error prone, and increasingly so with a realistic neural net.
+ 
+\end_layout
+
+\begin_layout Enumerate
+A lot of redundancies.
+ For instance, the first 3 steps in the two derivations are almost identical.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Both expressions have lots of repeated terms.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Backprop shares the repeated computations whenever possible.
+ It is clean and modular.
+ 
+\end_layout
+
+\begin_layout Section*
+Multivariate chain rule 2 variables
+\end_layout
+
+\begin_layout Standard
+Recall the univariate chain rule:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d}{dt}f(g(t))=f'(g(t))g'(t).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The multivariate chain rule is similar:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d}{dt}f(x(t),y(t))=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Convenient notation
+\end_layout
+
+\begin_layout Standard
+We simplify notation a bit here let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{v}\equiv\frac{\partial\mathcal{L}}{\partial v}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can rewrite the multivariable Chain rule
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{t}=\overline{x}\frac{dx}{dt}+\overline{y}\frac{dy}{dt}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we use 
+\begin_inset Formula $dx/dt$
+\end_inset
+
+ to mean we should actually evaluate the derivative algebraically in order
+ to determine the formula for 
+\begin_inset Formula $\overline{t}$
+\end_inset
+
+, where 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{y}$
+\end_inset
+
+ are values already computed in previous steps of the algorithm.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Using the computation graph
+\end_layout
+
+\begin_layout Standard
+The technique of backprop of automatic differentiation (autodiff), using
+ a computation graph:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=wx+b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\sigma(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}\left(y-t\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{R}=\frac{1}{2}w^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}_{r}=\mathcal{L}+\lambda\mathcal{R}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/computationgraph.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Computation Graph
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The computation graph has nodes that correspond to all the values that are
+ computed with edges indicating which values are computed from which other
+ values.
+ 
+\end_layout
+
+\begin_layout Standard
+The goal of backdrop is to compute derivatives 
+\begin_inset Formula $\overline{w}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{b}$
+\end_inset
+
+.
+ We do this applying repeatedly the chain rule.
+ 
+\end_layout
+
+\begin_layout Standard
+We have to start with 
+\begin_inset Formula $\mathcal{L}_{reg}=\mathcal{L}_{r}$
+\end_inset
+
+, and walk backwards trough the graph.
+ This explains the name.
+ 
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $v_{1},\cdots,v_{N}$
+\end_inset
+
+ be the notes of the computation graph, in topological order.
+ (Topological ordering is any ordering where parents come before children.)
+\end_layout
+
+\begin_layout Standard
+We want to compute all derivatives 
+\begin_inset Formula $\overline{v}_{i}$
+\end_inset
+
+, even when we only want a subset.
+ 
+\end_layout
+
+\begin_layout Standard
+We first compute all of the values in a 
+\series bold
+forward pass, 
+\series default
+and then compute the derivatives in 
+\series bold
+backward pass.
+ 
+\series default
+So we let for this case, 
+\begin_inset Formula $v_{N}=\mathcal{L}_{r}$
+\end_inset
+
+ or the result of the computation, we let 
+\begin_inset Formula $\overline{v}_{N}=1$
+\end_inset
+
+ by convention.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{L}}_{r}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{R}}=\overline{\mathcal{L}}_{r}\frac{d\mathcal{L}_{r}}{d\mathcal{R}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{\mathcal{L}}_{r}\lambda
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{L}}=\overline{\mathcal{L}}_{r}\frac{d\mathcal{L}_{r}}{d\mathcal{\mathcal{L}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{\mathcal{L}}_{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{y}=\overline{\mathcal{L}}\frac{d\mathcal{L}}{dy}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{\mathcal{L}}(y-t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{z}=\overline{y}\frac{dy}{dz}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{y}\sigma'(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{w}=\overline{z}\frac{dz}{dw}+\overline{\mathcal{R}}\frac{dR}{dw}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{z}x+\overline{\mathcal{R}}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{b}=\overline{z}\frac{dz}{db}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{z}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let's apply the method
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{L}}_{r}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{R}}=\overline{\mathcal{L}}_{r}\lambda
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{L}}=\overline{\mathcal{L}}_{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{y}=\overline{\mathcal{L}}(y-t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{z}=\overline{y}\sigma'(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{w}=\overline{z}x+\overline{\mathcal{R}}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{b}=\overline{z}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The procedure has no redundant computations so the procedure is modular,
+ it is broken into small chunks that can be reused for other computations.
+ 
+\end_layout
+
+\begin_layout Standard
+For instance, if we wanted to change the loss function we just had to modify
+ the formula for 
+\begin_inset Formula $\overline{y}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Chapter
