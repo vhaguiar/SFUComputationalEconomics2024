@@ -6276,18 +6276,7 @@ Calculus class
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\partial\mathcal{L}_{r}}{\partial w}=\frac{\partial}{\partial w}\left[\frac{1}{2}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}w^{2}\right]
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-=
+\frac{\partial\mathcal{L}_{r}}{\partial w}=
 \]
 
 \end_inset

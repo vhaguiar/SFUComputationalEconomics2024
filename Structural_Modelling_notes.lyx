@@ -6156,6 +6156,145 @@ this nonlinear transformation is key as it allows the outter linear model
 
 \end_layout
 
+\begin_layout Subsection*
+Backpropagation and Chain Rule
+\end_layout
+
+\begin_layout Subsection*
+Chain Rule
+\end_layout
+
+\begin_layout Standard
+We assume we have one input and out training example 
+\begin_inset Formula $(x,t)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We use a squared error loss function.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z=wx+b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\sigma(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}=\frac{1}{2}(y-t)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se will consider now a regularizer, that will penalize weights that are
+ far from zero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{R}=\frac{1}{2}w^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}_{r}=\mathcal{L}+\lambda\mathcal{R}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We want to perform gradient descent, we want to compute the partial derivatives
+ 
+\begin_inset Formula $\partial\mathcal{L}\backslash\partial w$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial\mathcal{L}\backslash\partial b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We will work now on the important idea of backpropagation or 
+\series bold
+backprop.
+\end_layout
+
+\begin_layout Subsection*
+Calculus class 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}_{r}=\frac{1}{2}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}w^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\mathcal{L}_{r}}{\partial w}=\frac{\partial}{\partial w}\left[\frac{1}{2}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}w^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2}\frac{\partial}{\partial w}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}\frac{\partial}{\partial w}w^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 K-means and K-medoids
 \end_layout
