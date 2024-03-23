@@ -6328,7 +6328,40 @@ Similar calculations for
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\partial\mathcal{L}_{r}}{\partial b}=(\sigma(wx+b)-t)\sigma'(wx+b).
+\frac{\partial\mathcal{L}_{r}}{\partial b}=\frac{\partial}{\partial b}\left[\frac{1}{2}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}w^{2}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2}\frac{\partial}{\partial b}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}\frac{\partial}{\partial b}w^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)\frac{\partial}{\partial w}(wx+b)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=(\sigma(wx+b)-t)\sigma'(wx+b).
 \]
 
 \end_inset

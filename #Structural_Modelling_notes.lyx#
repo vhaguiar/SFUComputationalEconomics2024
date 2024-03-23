@@ -6309,7 +6309,7 @@ Calculus class
 \begin_layout Standard
 \begin_inset Formula 
 \[
-=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)x
+=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)x+\lambda w
 \]
 
 \end_inset
@@ -6328,7 +6328,40 @@ Similar calculations for
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{\partial\mathcal{L}_{r}}{\partial b}=(\sigma(wx+b)-t)\sigma'(wx+b).
+\frac{\partial\mathcal{L}_{r}}{\partial b}=\frac{\partial}{\partial b}\left[\frac{1}{2}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}w^{2}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2}\frac{\partial}{\partial b}\left(\sigma(wx+b)-t\right)^{2}+\frac{\lambda}{2}\frac{\partial}{\partial b}w^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)\frac{\partial}{\partial b}(wx+b)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=(\sigma(wx+b)-t)\sigma'(wx+b).
 \]
 
 \end_inset
@@ -6409,7 +6442,7 @@ We simplify notation a bit here let
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{v}\equiv\frac{\partial\mathcal{L}}{\partial v}.
+\overline{v}\equiv\frac{\partial\mathcal{L}_{r}}{\partial v}.
 \]
 
 \end_inset
@@ -6591,7 +6624,7 @@ Let
 \begin_inset Formula $v_{1},\cdots,v_{N}$
 \end_inset
 
- be the notes of the computation graph, in topological order.
+ be the nodes of the computation graph, in topological order.
  (Topological ordering is any ordering where parents come before children.)
 \end_layout
 
@@ -6728,7 +6761,40 @@ So we let for this case,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\overline{}
+\overline{w}=\overline{z}\frac{dz}{dw}+\overline{\mathcal{R}}\frac{dR}{dw}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{z}x+\overline{\mathcal{R}}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{b}=\overline{z}\frac{dz}{db}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\overline{z}.
 \]
 
 \end_inset
@@ -6738,6 +6804,99 @@ So we let for this case,
 
 \begin_layout Standard
 Now let's apply the method
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{L}}_{r}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{R}}=\overline{\mathcal{L}}_{r}\lambda
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{\mathcal{L}}=\overline{\mathcal{L}}_{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{y}=\overline{\mathcal{L}}(y-t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{z}=\overline{y}\sigma'(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{w}=\overline{z}x+\overline{\mathcal{R}}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{b}=\overline{z}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The procedure has no redundant computations so the procedure is modular,
+ it is broken into small chunks that can be reused for other computations.
+ 
+\end_layout
+
+\begin_layout Standard
+For instance, if we wanted to change the loss function we just had to modify
+ the formula for 
+\begin_inset Formula $\overline{y}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Chapter

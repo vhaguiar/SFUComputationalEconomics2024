@@ -6309,7 +6309,7 @@ Calculus class
 \begin_layout Standard
 \begin_inset Formula 
 \[
-=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)x
+=\left(\sigma(wx+b)-t\right)\sigma'(wx+b)x+\lambda w
 \]
 
 \end_inset
