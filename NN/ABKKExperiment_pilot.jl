@@ -33,7 +33,6 @@ X1=CSV.read(rootdir*"/NN/data/ABKK_nnvictor.csv", DataFrame)
 
 ## Common parameters
 dYm=5                               # Number of varying options in menus
-model=="RUM" ? dYu=6 : dYu=5        # For RUM there are 6 options instead of 5
 Menus=collect(powerset(vec(1:dYm))) # Menus
 
 ## Select only big Menu
@@ -42,6 +41,12 @@ Menus=collect(powerset(vec(1:dYm))) # Menus
 using Flux: logitcrossentropy, normalise, onecold, onehotbatch
 using Statistics: mean
 using Parameters: @with_kw
+
+# This Julia script defines a mutable structure named Args using the @with_kw macro from the Parameters.jl package.
+# The Args struct has two fields: lr and repeat, which are of type Float64 and Int respectively.
+# lr represents a learning rate and has a default value of 0.5.
+# repeat represents the number of times an operation is to be repeated and has a default value of 110.
+# The @with_kw macro allows for the creation of Args instances using keyword arguments, and fields can be omitted if they have default values.
 
 @with_kw mutable struct Args
     lr::Float64 = 0.5
@@ -152,6 +157,18 @@ X_test = normed_features[:, 3:3:12297]
 y_test = onehot_labels[:, 3:3:12297]
 
 #repeat the data `args.repeat` times
+# The Iterators.repeated function is used here to create an iterator that repeats the given 
+# item, in this case, the tuple (X_train, y_train), a specified number of times, here 1000 times. 
+# Breakdown of its components:
+# - (X_train, y_train): This tuple contains our training data, where X_train is the matrix of input 
+#   features for each sample, and y_train is the corresponding labels or targets for each sample.
+# - 1000: The number of repetitions. This does not physically duplicate the data 1000 times; 
+#   instead, it creates a virtual loop over the same dataset 1000 times. This is effectively 
+#   simulating a scenario where the original dataset is much larger than it actually is. 
+# When this iterator is passed to the Flux.train! function for the training loop, it allows the 
+# model to train on the same dataset multiple times (1000 times in this case), without the need 
+# for physically duplicating the data, thus simulating an extended exposure to the training data.
+
 train_data = Iterators.repeated((X_train, y_train), 1000)
 test_data = (X_test,y_test)
 
@@ -210,13 +227,13 @@ model4 = Chain(
   Dense(37,37,relu),
   Dense(37, 37, relu),
   Dense(37, 37, relu),
-  Dense(37, 6),
-  softmax,
-  Dense(6,6))
+  Dense(37, 6,relu),
+  Dense(6, 6),
+  softmax)
 
 loss(x, y) = Flux.mse(model4(x), y)
 #optimiser = Descent(0.5)
-optimiser = ADAM(0.001, (0.9, 0.8))
+optimiser = ADAM(0.01, (0.9, 0.999))
 #   train_data =  Iterators.repeated((features,labels), 100)
 #   test_data = (features,y_test)
 Flux.train!(loss, Flux.params(model4), train_data, optimiser)
