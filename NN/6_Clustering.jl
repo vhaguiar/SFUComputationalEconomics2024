@@ -2,7 +2,7 @@ using Pkg
 # Create and activate a new environment
 Pkg.activate("Clustering_env")
 
-Pkg.add(["DataFrames", "Distances", "Clustering", "Random", "CategoricalArrays"])
+Pkg.add(["DataFrames", "Distances", "Clustering", "Random", "CategoricalArrays","StatsBase"])
 
 using DataFrames, Distances, Clustering, Random, CategoricalArrays
 

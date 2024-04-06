@@ -27,9 +27,9 @@ Random.seed!(8942)
 
 
 # Hyperparameters
-epochs = 5000
+epochs = 10000
 batch_size = 32
-latent_size = 5
+latent_size = 3
 lr = 0.001
 
 # Data generating process (DGP) to create real samples
@@ -39,7 +39,7 @@ end
 
 # Function to create random noise (latent vector)
 function sample_noise(batch_size, latent_size)
-    return randn(Float32, batch_size, latent_size)
+    return rand(Float32, batch_size, latent_size)
 end
 
 # Define the Generator and Discriminator networks using Flux
