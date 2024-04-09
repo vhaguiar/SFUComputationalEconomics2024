@@ -96,4 +96,4 @@ var(validation_samples)
 
 histogram(vec(generated_samples), bins=30, xlabel="Value", ylabel="Frequency", label="Generated samples", title="Generated Samples Distribution", legend=:topright)
 
-histogram(vec(validation_samples), bins=30, xlabel="Value", ylabel="Frequency", label="Generated samples", title="Validation Samples Distribution", legend=:topright)
+histogram(vec(validation_samples), bins=30, xlabel="Value", ylabel="Frequency", label="Validation samples", title="Validation Samples Distribution", legend=:topright)
