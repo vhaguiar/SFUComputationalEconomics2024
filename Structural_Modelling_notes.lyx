@@ -7526,5 +7526,750 @@ Gap statistic.
  
 \end_layout
 
+\begin_layout Chapter
+Transformers
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction to the Transformer Model
+\end_layout
+
+\begin_layout Itemize
+Provides an overview of sequence transduction challenges and introduces
+ the Transformer as a solution.
+ 
+\end_layout
+
+\begin_layout Itemize
+Discusses the objectives of using the Transformer in machine translation
+ and other NLP tasks.
+ 
+\end_layout
+
+\begin_layout Section
+Detailed Model Architecture
+\end_layout
+
+\begin_layout Subsection
+Encoder and Decoder Overview
+\end_layout
+
+\begin_layout Itemize
+Brief introduction to the overall encoder-decoder architecture.
+ 
+\end_layout
+
+\begin_layout Subsection
+Encoder Layers
+\end_layout
+
+\begin_layout Itemize
+Details the components within the encoder: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Multi-head self-attention mechanism 
+\end_layout
+
+\begin_layout Itemize
+Position-wise feed-forward networks 
+\end_layout
+
+\begin_layout Itemize
+Residual connections and layer normalization 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Decoder Layers
+\end_layout
+
+\begin_layout Itemize
+Explanation of the decoder’s unique components: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Masked self-attention 
+\end_layout
+
+\begin_layout Itemize
+Encoder-decoder attention 
+\end_layout
+
+\begin_layout Itemize
+Position-wise feed-forward networks, residual connections, and normalization
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Deep Dive into Self-Attention
+\end_layout
+
+\begin_layout Itemize
+Discusses the concept of self-attention and how it computes relevance scores
+ across input positions.
+ 
+\end_layout
+
+\begin_layout Itemize
+Provides the mathematical formulation including equations and calculations
+ for scaled dot-product attention.
+ 
+\end_layout
+
+\begin_layout Itemize
+Explains the rationale behind using multiple attention heads, enhancing
+ the model's ability to focus on different parts of the input sequence.
+ 
+\end_layout
+
+\begin_layout Section
+Objectives and Benefits of Self-Attention
+\end_layout
+
+\begin_layout Itemize
+Details computational efficiency, comparing with RNNs and CNNs in terms
+ of parallelization and training speed.
+ 
+\end_layout
+
+\begin_layout Itemize
+Discusses performance improvements in translation accuracy and model interpretab
+ility.
+ 
+\end_layout
+
+\begin_layout Itemize
+Talks about the flexibility and scalability of the model, adaptable to different
+ sequence lengths and complexities.
+ 
+\end_layout
+
+\begin_layout Section*
+Summary of Self-Attention Neural Network Structure
+\end_layout
+
+\begin_layout Standard
+The Transformer model, particularly through its use of self-attention, revolutio
+nizes the handling of sequences in tasks like translation.
+ Self-attention enables the model to evaluate the input sequence in a parallel
+ manner, significantly increasing efficiency and model depth.
+ Below, we delve into the core elements of the self-attention mechanism
+ within the Transformer architecture:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Input Embedding
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The input sequence is converted into a set of embeddings, which are vector
+ representations of the input tokens.
+ These embeddings are then adjusted by adding positional encodings to inject
+ information about the order of tokens.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Multi-Head Attention
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The main innovation of the Transformer, multi-head attention allows the
+ model to focus on different parts of the sequence simultaneously.
+ 
+\end_layout
+
+\begin_layout Itemize
+For each head, the attention scores are calculated by: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Query, Key, Value Vectors
+\series default
+: Derived from the input embeddings.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Attention Scores
+\series default
+: Computed by taking the dot product of the query with all keys, scaled
+ by the dimension of the keys, followed by a softmax to obtain the weights
+ on the values.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Outputs from all heads are concatenated and linearly transformed to produce
+ the final attention output.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Position-Wise Feed-Forward Networks
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+After attention, each position passes through a feed-forward network applied
+ independently to each position.
+ This network consists of two linear transformations with a ReLU activation
+ in between.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Residual Connection and Layer Normalization
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Each sub-layer (attention and feed-forward) includes a residual connection
+ around it, followed by layer normalization.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Decoder Structure
+\series default
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The decoder also features multi-head attention layers, but with masking
+ to prevent positions from attending to future positions in the sequence.
+ 
+\end_layout
+
+\begin_layout Itemize
+It includes an additional multi-head attention layer that attends over the
+ encoder's output.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+This architecture supports efficient training by parallelizing the computation
+ across all positions in the sequence, and it allows the model to learn
+ complex dependencies in data.
+\end_layout
+
+\begin_layout Section*
+Pseudo-Code for Implementing Self-Attention
+\end_layout
+
+\begin_layout Standard
+Here's a high-level pseudo-code that outlines the implementation of the
+ self-attention mechanism:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function SelfAttention(Q, K, V):
+\end_layout
+
+\begin_layout Plain Layout
+
+    d_k = size(K, last_dimension)
+\end_layout
+
+\begin_layout Plain Layout
+
+    scores = matmul(Q, K.transpose()) / sqrt(d_k)
+\end_layout
+
+\begin_layout Plain Layout
+
+    weights = softmax(scores)
+\end_layout
+
+\begin_layout Plain Layout
+
+    output = matmul(weights, V)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return output
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+function TransformerEncoder(input):
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Convert input tokens to embeddings
+\end_layout
+
+\begin_layout Plain Layout
+
+    X = Embedding(input) + PositionalEncoding(length(input))
+\end_layout
+
+\begin_layout Plain Layout
+
+    for each layer in layers:
+\end_layout
+
+\begin_layout Plain Layout
+
+        # Apply multi-head attention
+\end_layout
+
+\begin_layout Plain Layout
+
+        Q, K, V = [Linear(X) for _ in range(3)]
+\end_layout
+
+\begin_layout Plain Layout
+
+        X = Concat([SelfAttention(q, k, v) for q, k, v in zip(Q, K, V)])
+\end_layout
+
+\begin_layout Plain Layout
+
+        X = Linear(X)
+\end_layout
+
+\begin_layout Plain Layout
+
+        # Apply position-wise feed-forward network
+\end_layout
+
+\begin_layout Plain Layout
+
+        X = ReLU(Linear(X))
+\end_layout
+
+\begin_layout Plain Layout
+
+        X = Linear(X)
+\end_layout
+
+\begin_layout Plain Layout
+
+        # Add residual connection and normalize
+\end_layout
+
+\begin_layout Plain Layout
+
+        X = LayerNorm(X + residual)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return X
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Explanation of Multi-Head Attention
+\end_layout
+
+\begin_layout Standard
+Imagine you have a toy storybook in front of you with lots of pictures and
+ words.
+ Now, imagine you have several magnifying glasses that let you look at many
+ different parts of the page at the same time.
+ This is like the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+multi-head attention
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ in a Transformer model.
+ Let's break it down:
+\end_layout
+
+\begin_layout Subsection*
+Several Magnifying Glasses (Multi-Head Attention):
+\end_layout
+
+\begin_layout Standard
+Instead of one, you have several magnifying glasses (these are the 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+heads
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+).
+ Each one can look at different things on the same page.
+ This way, you can see many details at once!
+\end_layout
+
+\begin_layout Subsection*
+Choosing What to Look At (Query, Key, Value Vectors):
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Query
+\series default
+ is like asking, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+What should I look at in this picture?
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Key
+\series default
+ is like having clues on each part of the picture that answer, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+Is this part interesting to look at for your question?
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+"
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Value
+\series default
+ is the actual part of the picture you will see through the magnifying glass
+ if your clues (keys) say it's interesting.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Deciding How Interesting Each Part Is (Attention Scores):
+\end_layout
+
+\begin_layout Itemize
+First, each magnifying glass decides how closely the clues (keys) match
+ the question (query).
+ This is like measuring how interesting each part of the picture is based
+ on your question.
+ 
+\end_layout
+
+\begin_layout Itemize
+Then, to make it fair, each magnifying glass uses a rule (softmax) to make
+ sure that the most interesting parts stand out a lot more than the less
+ interesting ones.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Looking Through the Glasses (Outputs):
+\end_layout
+
+\begin_layout Itemize
+After all the magnifying glasses have looked at the parts they found interesting
+, they all come together.
+ 
+\end_layout
+
+\begin_layout Itemize
+You combine everything they saw into one big picture so you can understand
+ the whole story better.
+ 
+\end_layout
+
+\begin_layout Standard
+With the use of multi-head attention, the Transformer model can pay attention
+ to many different parts of the information (like your storybook) at the
+ same time, helping it understand the whole story better!
+\end_layout
+
+\begin_layout Section*
+Summary of Transformers for Time Series Analysis
+\end_layout
+
+\begin_layout Standard
+Transformers have demonstrated significant success in various domains like
+ NLP and computer vision, and this has inspired their application in time
+ series analysis.
+ Their ability to handle long-range dependencies makes them particularly
+ suitable for this task.
+ Here are the key adaptations and applications of transformers in time series
+ analysis:
+\end_layout
+
+\begin_layout Subsection*
+1.
+ Adaptations for Time Series
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Positional Encodings:
+\series default
+ Time series data is inherently sequential, so it's crucial to maintain
+ this ordering.
+ Transformers use positional encodings to retain temporal order.
+ Variants include: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Absolute Positional Encoding:
+\series default
+ Uses sine and cosine functions of different frequencies.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Relative Positional Encoding:
+\series default
+ Focuses on pairwise positional relationships rather than absolute positions.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Multi-head Attention:
+\series default
+ Enables the model to focus on different parts of the sequence simultaneously,
+ which is particularly beneficial for capturing complex temporal dynamics
+ in time series data.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Efficient Attention Mechanisms:
+\series default
+ To handle longer sequences typical in time series, modifications like sparse
+ attention and low-rank approximations reduce computational complexity.
+ 
+\end_layout
+
+\begin_layout Subsection*
+2.
+ Applications in Time Series
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Forecasting:
+\series default
+ Transformers are used for various forecasting tasks, including standard
+ time series forecasting, spatial-temporal forecasting (combining spatial
+ and temporal data), and event forecasting (predicting the times and marks
+ of future events).
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Anomaly Detection:
+\series default
+ The ability of transformers to model normal patterns over time helps in
+ identifying anomalies when these patterns are disrupted.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Classification:
+\series default
+ Transformers can classify time series data based on learned temporal dynamics,
+ useful in fields like finance and healthcare.
+ 
+\end_layout
+
+\begin_layout Subsection*
+3.
+ Empirical Performance
+\end_layout
+
+\begin_layout Itemize
+Studies indicate that transformers can outperform traditional models like
+ ARIMA and LSTM in handling complex dependencies in time series data.
+ 
+\end_layout
+
+\begin_layout Itemize
+Robustness analyses show that transformers maintain performance advantages
+ even with varying input lengths and complexities.
+ 
+\end_layout
+
+\begin_layout Subsection*
+4.
+ Future Directions
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Incorporating Inductive Biases:
+\series default
+ Applying domain-specific knowledge such as periodicity and trends directly
+ within the transformer model to enhance performance.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Combining with Graph Neural Networks (GNNs):
+\series default
+ For multivariate time series, integrating GNNs to model relationships among
+ multiple time series effectively.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Pre-trained Transformers:
+\series default
+ Leveraging large-scale pre-training, similar to approaches in NLP, to improve
+ time series model performance with less data.
+ 
+\end_layout
+
 \end_body
 \end_document
