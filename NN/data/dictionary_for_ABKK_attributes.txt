@@ -53,7 +53,7 @@ binary9_order
 binary10_menu
 binary10_choice
 binary10_order
-gender  "gender of subject" "1 female" "2 male"
+gender  "gender of subject" "1 female" "0 male"
 age "1=18-24 years old; 2=25-34 years old; 3=35-44 years old; 4=45-54 years old; 5=55-64 years old; 6=65-74 years old; 7=75 years old."
 education "1=some high school; 2=high school graduate; 3=some college; 4=Associate or Bachellors degree; 5=Master degree or higher"
 ethnicity "1=white; 2=hispanic or latino; 3=black or african american; 4=Asian; 5=Native Hawaiian or Pacific Islander; 6=Other"
